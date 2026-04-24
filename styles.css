@@ -1,0 +1,46 @@
+body {
+    background-color: #f8f9fa; /* Um cinza bem clarinho para não cansar a vista */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.card-stats {
+    border: none;
+    border-radius: 12px;
+    transition: transform 0.2s;
+}
+
+.card-stats:hover {
+    transform: translateY(-5px); /* Efeito de flutuar ao passar o mouse */
+}
+
+.navbar {
+    margin-bottom: 20px;
+}
+
+.card {
+    border-radius: 12px;
+}
+
+h2, h5 {
+    font-weight: 600;
+}
+
+.card-stats {
+    transition: transform 0.3s ease;
+    border: none;
+}
+
+.card-stats:hover {
+    transform: translateY(-5px);
+}
+
+.card-stats h5 {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    opacity: 0.9;
+}
+
+.card-stats h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
