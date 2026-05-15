@@ -4,49 +4,99 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Painel Hamburgueria - EstoqueIA</title>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
 </head>
+
 <body>
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.html"><i class="bi bi-graph-up-arrow"></i> GestãoBurguer</a>
+            <a class="navbar-brand" href="index.html">HamburguerIA</a>
+
             <div class="navbar-nav">
                 <a class="nav-link active" href="index.html">Dashboard</a>
                 <a class="nav-link" href="cadastro.html">Cadastros</a>
                 <a class="nav-link" href="estoque.html">Estoque</a>
+                <a class="nav-link active" href="ia.html">Previsões com IA</a>
             </div>
         </div>
     </nav>
 
     <div class="container mt-4">
-        <div class="row mb-4">
-            <div class="col-md-4">
-                <div class="card card-stats bg-primary text-white p-3 shadow-sm">
-                    <h5>Itens em Estoque</h5>
-                    <h2 id="card-total-itens">0</h2>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card card-stats bg-warning text-dark p-3 shadow-sm">
-                    <h5>Alertas de Falta</h5>
-                    <h2 id="card-alertas">0</h2>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card card-stats bg-success text-white p-3 shadow-sm">
-                    <h5>Previsão de Vendas</h5>
-                    <h2 id="card-ia">Calculando...</h2>
-                </div>
-            </div>
-        </div>
 
+<div class="row mb-4 g-3">
+
+    <div class="col-md-6">
+        <div class="card card-stats bg-primary text-white p-3 shadow-sm h-100">
+            <h5>Itens em Estoque</h5>
+            <h2 id="card-total-itens">0</h2>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card card-stats bg-warning text-dark p-3 shadow-sm h-100">
+            <h5>Alertas de Falta</h5>
+            <h2 id="card-alertas">0</h2>
+        </div>
+    </div>
+
+</div>
+
+        <!-- Resumo IA -->
+<div class="row mb-4 g-3" id="secao-resumo-ia" style="display: none;">
+
+    <div class="col-md-3">
+        <div class="alert alert-info shadow-sm d-flex justify-content-between align-items-center h-100 mb-0">
+            <span>
+                <i class="bi bi-robot"></i>
+                <strong>Previsão IA para hoje:</strong>
+            </span>
+
+            <span id="dash-faturamento-ia" class="badge bg-primary fs-6">
+                R$ 0,00
+            </span>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card p-3 shadow-sm text-center h-100">
+            <small class="text-muted">Lanches Previstos</small>
+            <h4 id="dash-lanches-ia">0</h4>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card p-3 shadow-sm text-center h-100">
+            <small class="text-muted">Delivery Previsto</small>
+            <h4 id="dash-delivery-ia">0</h4>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card p-3 shadow-sm text-center h-100">
+            <small class="text-muted">Salão Previsto</small>
+            <h4 id="dash-presencial-ia">0</h4>
+        </div>
+    </div>
+
+</div>
+
+        <!-- Conteúdo principal -->
         <div class="row">
-            <div class="col-md-8">
+
+            <div class="col-12">
                 <div class="card shadow-sm p-4">
-                    <h5><i class="bi bi-list-check"></i> Resumo de Ingredientes</h5>
+
+                    <h5>
+                        <i class="bi bi-list-check"></i>
+                        Resumo de Ingredientes
+                    </h5>
+
                     <table class="table mt-3">
+
                         <thead>
                             <tr>
                                 <th>Ingrediente</th>
@@ -55,21 +105,20 @@
                                 <th>Status</th>
                             </tr>
                         </thead>
+
                         <tbody id="tabela-resumo">
-                            </tbody>
+                        </tbody>
+
                     </table>
+
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="card shadow-sm p-4 border-info">
-                    <h5><i class="bi bi-robot"></i> IA Predictor</h5>
-                    <div id="ia-content">
-                        <p class="small text-muted">Aguardando dados de vendas para gerar estimativas...</p>
-                    </div>
-                </div>
-            </div>
+
         </div>
+
     </div>
+
     <script src="script.js"></script>
+
 </body>
 </html>
