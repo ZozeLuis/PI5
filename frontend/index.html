@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - HamburgueriaIA</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+</head>
+<body>
+    <header class="topbar">
+        <div class="container topbar-inner">
+            <a class="brand" href="index.html">Hamburguer<span>IA</span></a>
+            <nav class="nav-links">
+                <a class="nav-link active" href="index.html">Dashboard</a>
+                <a class="nav-link" href="cadastro.html">Cadastros</a>
+                <a class="nav-link" href="estoque.html">Estoque</a>
+                <a class="nav-link" href="ia.html">IA</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <div class="hero-copy">
+                <span class="eyebrow">Painel</span>
+                <h1>Controle do estoque com design leve e informações que brilham.</h1>
+                <p>Um painel simples para visualizar itens, antecipar avisos e manter a gestão da hamburgueria afiada sem distrações.</p>
+            </div>
+            <div class="hero-badge hero-glow">
+                <strong>Visão geral instantânea</strong>
+                <span class="value">0</span>
+                <p class="small-note">Itens em estoque</p>
+            </div>
+        </section>
+
+        <section class="grid grid-cols-2">
+            <div class="panel">
+                <strong>Itens em estoque</strong>
+                <p class="small-note">Veja a quantidade total de ingredientes disponíveis.</p>
+                <h2 id="card-total-itens">0</h2>
+            </div>
+            <div class="panel">
+                <strong>Alertas de falta</strong>
+                <p class="small-note">Fique de olho em ingredientes com estoque baixo.</p>
+                <h2 id="card-alertas">0</h2>
+            </div>
+        </section>
+
+        <section class="panel" id="secao-resumo-ia" style="display:none;">
+            <div class="section-head">
+                <div>
+                    <h2>Previsões de hoje</h2>
+                    <p>Dados salvos pela IA para apoiar decisões rápidas.</p>
+                </div>
+            </div>
+            <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));">
+                <div class="result-card">
+                    <span class="small-note">Faturamento previsto</span>
+                    <strong id="dash-faturamento-ia">R$ 0,00</strong>
+                </div>
+                <div class="result-card">
+                    <span class="small-note">Lanches</span>
+                    <strong id="dash-lanches-ia">0</strong>
+                </div>
+                <div class="result-card">
+                    <span class="small-note">Delivery</span>
+                    <strong id="dash-delivery-ia">0</strong>
+                </div>
+                <div class="result-card">
+                    <span class="small-note">Salão</span>
+                    <strong id="dash-presencial-ia">0</strong>
+                </div>
+            </div>
+        </section>
+
+        <section class="panel">
+            <div class="section-head">
+                <div>
+                    <h2>Resumo de ingredientes</h2>
+                    <p>Panorama rápido do estoque e do status de cada item.</p>
+                </div>
+            </div>
+            <div style="overflow-x:auto;">
+                <table class="table-custom">
+                    <thead>
+                        <tr>
+                            <th>Ingrediente</th>
+                            <th>Quantidade</th>
+                            <th>Unidade</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabela-resumo"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
