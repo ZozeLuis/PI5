@@ -1,66 +1,58 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estoque - HamburgueriaIA</title>
+    <title>Movimentação - HamburgueriaIA</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
 </head>
 <body>
-    <header class="topbar">
-        <div class="container topbar-inner">
-            <a class="brand" href="index.html">Hamburguer<span>IA</span></a>
-            <nav class="nav-links">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">HamburguerIA</a>
+            <div class="navbar-nav">
                 <a class="nav-link" href="index.html">Dashboard</a>
                 <a class="nav-link" href="cadastro.html">Cadastros</a>
                 <a class="nav-link active" href="estoque.html">Estoque</a>
-                <a class="nav-link" href="ia.html">IA</a>
-            </nav>
+                <a class="nav-link active" href="ia.html">Previsões com IA</a>
+            </div>
         </div>
-    </header>
+    </nav>
 
-    <main class="container">
-        <section class="hero">
-            <div class="hero-copy">
-                <span class="eyebrow">Estoque</span>
-                <h1>Atualize movimentos com precisão e sem ruído visual.</h1>
-                <p>Um único painel para entradas, saídas e saldo real, pensado na clareza do fluxo do backoffice.</p>
-            </div>
-        </section>
-
-        <section class="grid grid-cols-2" style="gap: 24px; margin-bottom: 28px;">
-            <div class="panel">
-                <strong>Lançar movimentação</strong>
-                <p class="small-note">Registre rapidamente entradas e saídas para cada ingrediente.</p>
-                <form id="formMovimentacao" class="mt-3">
-                    <div class="form-group">
-                        <label class="form-label">Ingrediente</label>
-                        <select class="form-select" id="selectIngrediente" required>
-                            <option value="">Selecione...</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Tipo</label>
-                        <select class="form-select" id="tipoMovimentacao">
-                            <option value="entrada">Entrada (+)</option>
-                            <option value="saida">Saída (-)</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Quantidade</label>
-                        <input type="number" class="form-control" id="qtdMov" step="0.001" required>
-                    </div>
-                    <button type="submit" class="btn-accent w-100">Atualizar estoque</button>
-                </form>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="card shadow-sm p-4 border-success">
+                    <h5 class="mb-4">📦 Lançar Movimentação</h5>
+                    <form id="formMovimentacao">
+                        <div class="mb-3">
+                            <label class="form-label">Ingrediente</label>
+                            <select class="form-select" id="selectIngrediente" required>
+                                <option value="">Selecione...</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Tipo</label>
+                            <select class="form-select" id="tipoMovimentacao">
+                                <option value="entrada">Entrada (+) </option>
+                                <option value="saida">Saída (-)</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Quantidade</label>
+                            <input type="number" class="form-control" id="qtdMov" step="0.001" required>
+                        </div>
+                        <button type="submit" class="btn btn-success w-100">Atualizar Estoque</button>
+                    </form>
+                </div>
             </div>
 
-            <div class="panel">
-                <strong>Saldo atual</strong>
-                <p class="small-note">Veja o estoque atualizado em tempo real.</p>
-                <div style="overflow-x:auto; margin-top:18px;">
-                    <table class="table-custom">
+            <div class="col-md-7">
+                <div class="card shadow-sm p-4">
+                    <h5 class="mb-4">📋 Saldo Atual</h5>
+                    <table class="table table-hover">
                         <thead>
                             <tr>
                                 <th>Item</th>
@@ -68,13 +60,14 @@
                                 <th>Unidade</th>
                             </tr>
                         </thead>
-                        <tbody id="tabela-saldo-real"></tbody>
+                        <tbody id="tabela-saldo-real">
+                            </tbody>
                     </table>
                 </div>
             </div>
-        </section>
-    </main>
-
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
